@@ -15,7 +15,7 @@ def fayda_oauth_get_token(auth_code: str, redirect_uri: str, code_verifier: str,
         "code_verifier": code_verifier
     }
     
-    response = requests.post(token_url, data=data, headers={"Content-Type": "application/x-www-form-urlencoded"}, verify=False)
+    response = requests.post(token_url, data=data, headers={"Content-Type": "application/x-www-form-urlencoded"})
     if response.status_code != 200:
         logging.error(f"Token request failed: {response.text}")
         raise Exception(f"Unexpected status code: {response.status_code}")
